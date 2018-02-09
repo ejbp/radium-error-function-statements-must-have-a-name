@@ -8,7 +8,6 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const sourcePath = path.join(__dirname, 'src');
 const publicPath = path.join(__dirname, 'public');
-const assetPath = path.join(__dirname, 'assets');
 
 const DIST_DIR = "dist";
 
@@ -39,19 +38,7 @@ const config = {
         use: ExtractTextPlugin.extract({ 
             use: 'css-loader',
             fallback: 'style-loader'
-        }),
-        include: assetPath,
-      },
-      {
-        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-        use: {
-            loader: 'url-loader',
-            options: { 
-                limit: 10000, // Convert images < 8kb to base64 strings
-                name: 'assets/images/[name].[ext]'
-            },
-        },
-        include: assetPath,
+        })
       },
       {
         test: /\.html$/,
@@ -91,19 +78,15 @@ const config = {
 
     new CleanWebpackPlugin(['dist']),
 
-    new CopyWebpackPlugin([
-      { from: 'assets', to: 'assets' }
-    ]),
-
   ],
 
-  devtool: "source-map", // enum
-  devtool: "inline-source-map", // inlines SourceMap into original file
-  devtool: "eval-source-map", // inlines SourceMap per module
-  devtool: "hidden-source-map", // SourceMap without reference in original file
-  devtool: "cheap-source-map", // cheap-variant of SourceMap without module mappings
-  devtool: "cheap-module-source-map", // cheap-variant of SourceMap with module mappings
-  devtool: "eval", // no SourceMap, but named modules. Fastest at the expense of detail.
+  //devtool: "source-map", // enum
+  //devtool: "inline-source-map", // inlines SourceMap into original file
+  //devtool: "eval-source-map", // inlines SourceMap per module
+  //devtool: "hidden-source-map", // SourceMap without reference in original file
+  //devtool: "cheap-source-map", // cheap-variant of SourceMap without module mappings
+  //devtool: "cheap-module-source-map", // cheap-variant of SourceMap with module mappings
+  //devtool: "eval", // no SourceMap, but named modules. Fastest at the expense of detail.
   // enhance debugging by adding meta info for the browser devtools
   // source-map most detailed at the expense of build speed.
 
