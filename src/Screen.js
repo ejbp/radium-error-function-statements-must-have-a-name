@@ -1,6 +1,8 @@
 import React from 'react';
 import Radium from 'radium';
 
+console.log("TODO HERE RADIUM", Radium);
+
 const styles = {
 
     "test": {
@@ -17,14 +19,14 @@ class Screen extends React.Component {
     constructor(props) {
 	super(props);
 
-	this.state = { 
-	    width: 0, 
+	this.state = {
+	    width: 0,
 	    height: 0
 	};
 
 
     }
-    
+
     render() {
 	return (
 		<div style={styles.test}>This is an error example</div>

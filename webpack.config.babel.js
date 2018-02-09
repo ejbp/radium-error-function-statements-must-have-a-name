@@ -21,7 +21,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      sourcePath, 
+      sourcePath,
       path.resolve(__dirname, 'node_modules')
     ]
   },
@@ -35,7 +35,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({ 
+        use: ExtractTextPlugin.extract({
             use: 'css-loader',
             fallback: 'style-loader'
         })
@@ -52,26 +52,26 @@ const config = {
       }
     ],
   },
-  
+
   context: __dirname, // string (absolute path!),
 
-  devServer: {
-    //contentBase: [path.join(__dirname, 'public')], // boolean | string | array, static file location
-    compress: true, // enable gzip compression
-    historyApiFallback: true, // true for index.html upon 404, object for multiple paths
-    hot: false, // hot module replacement. Depends on HotModuleReplacementPlugin
-    https: false, // true for self-signed, object for cert authority
-    noInfo: true, // only errors & warns on hot reload
-    // ...
-  },
+  // devServer: {
+  //   //contentBase: [path.join(__dirname, 'public')], // boolean | string | array, static file location
+  //   compress: true, // enable gzip compression
+  //   historyApiFallback: true, // true for index.html upon 404, object for multiple paths
+  //   hot: false, // hot module replacement. Depends on HotModuleReplacementPlugin
+  //   https: false, // true for self-signed, object for cert authority
+  //   noInfo: true, // only errors & warns on hot reload
+  //   // ...
+  // },
 
   plugins: [
-    
+
 
     //new ExtractTextPlugin(path.resolve(__dirname, 'public/styles/app.css')),
     new ExtractTextPlugin('styles.css'),
 
-    new HtmlWebpackPlugin({   
+    new HtmlWebpackPlugin({
         filename: 'index.html',
         template: path.join(__dirname, 'public', 'index.html')
     }),
@@ -80,7 +80,7 @@ const config = {
 
   ],
 
-  //devtool: "source-map", // enum
+  devtool: "source-map", // enum
   //devtool: "inline-source-map", // inlines SourceMap into original file
   //devtool: "eval-source-map", // inlines SourceMap per module
   //devtool: "hidden-source-map", // SourceMap without reference in original file

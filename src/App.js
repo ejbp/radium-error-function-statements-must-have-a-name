@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactTV from 'react-tv';
+import ReactDOM from 'react-dom';
 import { withNavigation, withFocusable } from 'react-tv-navigation';
 
 import Screen from './Screen'
@@ -26,4 +26,4 @@ class App extends React.Component {
 
 const AppWithNavigation = withNavigation(App)
 
-ReactTV.render(<AppWithNavigation/>, document.querySelector('#root'));
+ReactDOM.render(<AppWithNavigation/>, document.querySelector('#root'));
